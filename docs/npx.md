@@ -9,6 +9,7 @@ After the package is published to npm:
 ```bash
 npx vn-address-kit@latest version
 npx vn-address-kit@latest convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json
+npx vn-address-kit@latest convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json --pretty
 npx vn-address-kit@latest search province "khanh hoa"
 npx vn-address-kit@latest search ward "loc tho" --province 56
 ```
@@ -27,6 +28,7 @@ If the package is not published to npm yet, run it directly from GitHub:
 ```bash
 npx github:zindont/vn-address-kit version
 npx github:zindont/vn-address-kit convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json
+npx github:zindont/vn-address-kit convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json --pretty
 ```
 
 GitHub execution clones the repository and runs the package `prepare` script, so it can be slower than npm registry execution.
@@ -44,4 +46,4 @@ npx vn-address-kit@latest migrate customers.csv \
 
 - `npx` still downloads a temporary package cache; it does not install the package globally or add it to your project.
 - The bundled dataset is sample-only. Replace it with verified administrative data before production use.
-- Use `--json` for scripting and automation.
+- Use `--json` for scripting and automation, and add `--pretty` when reading JSON in a terminal.

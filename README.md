@@ -43,6 +43,7 @@ Use `npx` for quick one-off tasks without adding the package to a project:
 ```bash
 npx vn-address-kit@latest version
 npx vn-address-kit@latest convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json
+npx vn-address-kit@latest convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json --pretty
 npx vn-address-kit@latest search province "khanh hoa"
 ```
 
@@ -51,6 +52,7 @@ Before the npm package is published, you can run from GitHub:
 ```bash
 npx github:zindont/vn-address-kit version
 npx github:zindont/vn-address-kit convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json
+npx github:zindont/vn-address-kit convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json --pretty
 ```
 
 ## Convert Address Text

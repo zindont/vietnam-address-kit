@@ -22,6 +22,7 @@ Prints package and data version.
 vn-address convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa"
 vn-address convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json --pretty
 npx vn-address-kit@latest convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json
+npx vn-address-kit@latest convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json --pretty
 ```
 
 ## Search
