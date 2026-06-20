@@ -36,6 +36,23 @@ const result = convertAddressText("123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Ho
 console.log(result.newAddress, result.confidence);
 ```
 
+## Run Without Installing
+
+Use `npx` for quick one-off tasks without adding the package to a project:
+
+```bash
+npx vn-address-kit@latest version
+npx vn-address-kit@latest convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json
+npx vn-address-kit@latest search province "khanh hoa"
+```
+
+Before the npm package is published, you can run from GitHub:
+
+```bash
+npx github:zindont/vn-address-kit version
+npx github:zindont/vn-address-kit convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json
+```
+
 ## Convert Address Text
 
 ```ts
@@ -114,6 +131,7 @@ The initial repository uses sample data for development. Replace `src/data/sampl
 
 - [API Reference](docs/api.md)
 - [CLI Usage](docs/cli.md)
+- [Run With npx](docs/npx.md)
 - [Data Sources](docs/data-sources.md)
 - [Confidence Strategy](docs/confidence.md)
 - [Limitations](docs/limitations.md)

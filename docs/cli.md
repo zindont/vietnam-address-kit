@@ -11,6 +11,7 @@ npm run build
 ```bash
 vn-address version
 node dist/cli/index.js version
+npx vn-address-kit@latest version
 ```
 
 Prints package and data version.
@@ -20,6 +21,7 @@ Prints package and data version.
 ```bash
 vn-address convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa"
 vn-address convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json --pretty
+npx vn-address-kit@latest convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json
 ```
 
 ## Search
@@ -28,12 +30,18 @@ vn-address convert "123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa" --json --pre
 vn-address search province "khanh hoa"
 vn-address search ward "loc tho"
 vn-address search ward "loc tho" --province 56
+npx vn-address-kit@latest search province "khanh hoa"
 ```
 
 ## Migrate CSV
 
 ```bash
 vn-address migrate customers.csv \
+  --address-column address \
+  --out customers.migrated.csv \
+  --report report.json
+
+npx vn-address-kit@latest migrate customers.csv \
   --address-column address \
   --out customers.migrated.csv \
   --report report.json

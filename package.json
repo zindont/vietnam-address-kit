@@ -7,6 +7,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
+    "vn-address-kit": "dist/cli/index.js",
     "vn-address": "dist/cli/index.js"
   },
   "files": [
