@@ -36,6 +36,21 @@ export interface LegacyDistrict {
   normalizedName: string;
 }
 
+/**
+ * A ward name retired in an earlier (pre-2025) reform round that was absorbed,
+ * deterministically, into the surviving `LegacyWard` that carries this entry.
+ * Lets addresses written with the old name (e.g. "Phước Tiến", merged into
+ * "Tân Tiến" on 2024-11-01) still resolve. Matching is by `normalizedName`;
+ * `code`/`since`/`decree` are carried for auditability only.
+ */
+export interface LegacyFormerName {
+  name: string;
+  normalizedName: string;
+  code?: string;
+  since?: string;
+  decree?: string;
+}
+
 export interface LegacyWard {
   code: string;
   name: string;
@@ -45,6 +60,8 @@ export interface LegacyWard {
   provinceCode: string;
   slug: string;
   normalizedName: string;
+  /** Former names this ward absorbed in a pre-2025 reform; see {@link LegacyFormerName}. */
+  formerNames?: LegacyFormerName[];
 }
 
 export type MappingType =
@@ -52,6 +69,7 @@ export type MappingType =
   | "renamed"
   | "merged"
   | "split"
+  | "split_population"
   | "province_changed"
   | "ambiguous"
   | "manual_review_required";

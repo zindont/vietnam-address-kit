@@ -12,7 +12,7 @@ Many systems still store addresses as `street, ward, district, province`, while 
 
 ## Release Status
 
-`vn-address-kit` is published as a stable open-source package with a documented API, CLI, tests, release checklist, and community files. The bundled dataset is intentionally small and sample-only until verified official administrative data is imported.
+`vn-address-kit` is published as a stable open-source package with a documented API, CLI, tests, release checklist, and community files. It bundles the **official 2025 two-level administrative dataset** (34 provinces / 3,321 wards), generated from the national conversion table per Quyết định 19/2025/QĐ-TTg and reconciled to official totals.
 
 ## Installation
 
@@ -115,11 +115,12 @@ vn-address search ward "loc tho" --province 56
 
 Results include `confidence` from `0` to `1`, a `strategy`, `warnings`, and `candidates`. High confidence means exact or normalized mapping; lower confidence means fuzzy/candidate-only output that should be reviewed.
 
-## Data Source Warning
+## Data Source
 
-This project starts with sample data for development. Do not use the sample dataset in production. Replace it with verified administrative data and mapping rules before production use.
-
-The initial repository uses sample data for development. Replace `src/data/sample/*.json` with verified official data before production use.
+The bundled dataset in `src/data/official/*.json` is generated from the official national conversion
+table (Quyết định 19/2025/QĐ-TTg + 34 Nghị quyết UBTVQH; Tổng cục Thống kê). Regenerate it with
+`npm run build:data`. For legally critical use, re-verify against `danhmuchanhchinh.nso.gov.vn`. See
+[Data Sources](docs/data-sources.md).
 
 ## Open Source Standards
 
@@ -140,7 +141,7 @@ The initial repository uses sample data for development. Replace `src/data/sampl
 
 ## Limitations
 
-- Sample data covers only a few Khánh Hòa, Hà Nội, and TP. Hồ Chí Minh examples.
+- Dataset reconciles to official 2025 totals (34 provinces / 3,321 wards), but re-verify for legally critical use.
 - Free-text parsing is practical but not exhaustive.
 - Ambiguous or low-confidence results are not forced into a single answer.
 - This package does not guarantee legal correctness until verified official data is imported.

@@ -4,6 +4,8 @@ import type { Province, Ward } from "./data";
 export type MatchStrategy =
   | "old_ward_district_province_exact"
   | "old_ward_province_exact"
+  | "former_ward"
+  | "split_population"
   | "normalized_exact"
   | "no_diacritics"
   | "abbreviation"
