@@ -1,5 +1,0 @@
-[
-  { "code": "56", "name": "Khánh Hòa", "type": "province", "nameWithType": "Tỉnh Khánh Hòa", "slug": "khanh-hoa", "normalizedName": "khanh hoa" },
-  { "code": "01", "name": "Hà Nội", "type": "city", "nameWithType": "Thành phố Hà Nội", "slug": "ha-noi", "normalizedName": "ha noi" },
-  { "code": "79", "name": "Hồ Chí Minh", "type": "city", "nameWithType": "Thành phố Hồ Chí Minh", "slug": "ho-chi-minh", "normalizedName": "ho chi minh" }
-]

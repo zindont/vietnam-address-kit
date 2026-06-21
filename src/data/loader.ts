@@ -1,9 +1,9 @@
-import currentProvinces from "./sample/current-provinces.json";
-import currentWards from "./sample/current-wards.json";
-import legacyProvinces from "./sample/legacy-provinces.json";
-import legacyDistricts from "./sample/legacy-districts.json";
-import legacyWards from "./sample/legacy-wards.json";
-import mappings from "./sample/mappings.json";
+import currentProvinces from "./official/current-provinces.json";
+import currentWards from "./official/current-wards.json";
+import legacyProvinces from "./official/legacy-provinces.json";
+import legacyDistricts from "./official/legacy-districts.json";
+import legacyWards from "./official/legacy-wards.json";
+import mappings from "./official/mappings.json";
 import type { AddressMapping, LegacyDistrict, LegacyProvince, LegacyWard, Province, Ward } from "../types/data";
 import { normalizeText } from "../normalize/normalize-text";
 

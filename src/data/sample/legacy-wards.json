@@ -1,8 +1,0 @@
-[
-  { "code": "22301", "name": "Lộc Thọ", "type": "ward", "nameWithType": "Phường Lộc Thọ", "districtCode": "568", "provinceCode": "56", "slug": "loc-tho", "normalizedName": "loc tho" },
-  { "code": "22302", "name": "Vĩnh Hải", "type": "ward", "nameWithType": "Phường Vĩnh Hải", "districtCode": "568", "provinceCode": "56", "slug": "vinh-hai", "normalizedName": "vinh hai" },
-  { "code": "00037", "name": "Hàng Trống", "type": "ward", "nameWithType": "Phường Hàng Trống", "districtCode": "001", "provinceCode": "01", "slug": "hang-trong", "normalizedName": "hang trong" },
-  { "code": "26734", "name": "Bến Thành", "type": "ward", "nameWithType": "Phường Bến Thành", "districtCode": "760", "provinceCode": "79", "slug": "ben-thanh", "normalizedName": "ben thanh" },
-  { "code": "26735", "name": "Bến Nghé", "type": "ward", "nameWithType": "Phường Bến Nghé", "districtCode": "760", "provinceCode": "79", "slug": "ben-nghe", "normalizedName": "ben nghe" },
-  { "code": "26800", "name": "Thảo Điền", "type": "ward", "nameWithType": "Phường Thảo Điền", "districtCode": "769", "provinceCode": "79", "slug": "thao-dien", "normalizedName": "thao dien" }
-]

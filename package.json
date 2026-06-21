@@ -29,6 +29,7 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit",
     "lint": "tsc --noEmit",
+    "build:data": "python3 scripts/build-dataset.py",
     "prepare": "npm run build",
     "audit": "npm audit",
     "release:check": "npm run typecheck && npm test && npm run build && npm audit && npm pack --dry-run",

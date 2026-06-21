@@ -1,6 +1,0 @@
-[
-  { "code": "568", "name": "Nha Trang", "type": "city", "nameWithType": "Thành phố Nha Trang", "provinceCode": "56", "slug": "nha-trang", "normalizedName": "nha trang" },
-  { "code": "001", "name": "Hoàn Kiếm", "type": "urban_district", "nameWithType": "Quận Hoàn Kiếm", "provinceCode": "01", "slug": "hoan-kiem", "normalizedName": "hoan kiem" },
-  { "code": "760", "name": "Quận 1", "type": "urban_district", "nameWithType": "Quận 1", "provinceCode": "79", "slug": "quan-1", "normalizedName": "quan 1" },
-  { "code": "769", "name": "Thủ Đức", "type": "city", "nameWithType": "Thành phố Thủ Đức", "provinceCode": "79", "slug": "thu-duc", "normalizedName": "thu duc" }
-]

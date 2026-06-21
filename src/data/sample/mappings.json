@@ -1,8 +1,0 @@
-[
-  { "oldProvinceCode": "56", "oldDistrictCode": "568", "oldWardCode": "22301", "newProvinceCode": "56", "newWardCode": "56001", "type": "unchanged", "note": "Sample mapping only." },
-  { "oldProvinceCode": "56", "oldDistrictCode": "568", "oldWardCode": "22302", "newProvinceCode": "56", "newWardCode": "56002", "type": "unchanged", "note": "Sample mapping only." },
-  { "oldProvinceCode": "01", "oldDistrictCode": "001", "oldWardCode": "00037", "newProvinceCode": "01", "newWardCode": "01001", "type": "merged", "note": "Sample mapping only." },
-  { "oldProvinceCode": "79", "oldDistrictCode": "760", "oldWardCode": "26734", "newProvinceCode": "79", "newWardCode": "79001", "type": "unchanged", "note": "Sample mapping only." },
-  { "oldProvinceCode": "79", "oldDistrictCode": "760", "oldWardCode": "26735", "newProvinceCode": "79", "newWardCode": "79001", "type": "merged", "note": "Sample mapping only." },
-  { "oldProvinceCode": "79", "oldDistrictCode": "769", "oldWardCode": "26800", "newProvinceCode": "79", "newWardCode": "79002", "type": "renamed", "note": "Sample mapping only." }
-]
