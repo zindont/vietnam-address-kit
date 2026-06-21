@@ -11,13 +11,14 @@ describe("search", () => {
   });
 
   it("searches ward with province filter", () => {
-    const results = searchWard("loc tho", { provinceCode: "56" });
-    expect(results).toHaveLength(1);
-    expect(results[0]?.item.code).toBe("56001");
+    const results = searchWard("bac nha trang", { provinceCode: "56" });
+    expect(results.length).toBeGreaterThan(0);
+    expect(results[0]?.item.code).toBe("22333");
+    expect(results.every((result) => result.item.provinceCode === "56")).toBe(true);
   });
 
-  it("returns multiple candidates for ambiguous ward names", () => {
-    const results = searchWard("loc tho");
+  it("returns multiple candidates for ward names shared across provinces", () => {
+    const results = searchWard("tan thanh");
     expect(results.length).toBeGreaterThan(1);
   });
 });

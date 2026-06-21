@@ -14,7 +14,7 @@ describe("cli utils", () => {
   });
 
   it("formats conversion output", () => {
-    const text = formatConversionResult(convertAddressText("123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa"));
+    const text = formatConversionResult(convertAddressText("123 Le Loi, P Vinh Hoa, TP Nha Trang, Khanh Hoa"));
     expect(text).toContain("Success: true");
   });
 });

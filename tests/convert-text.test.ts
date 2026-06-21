@@ -3,18 +3,18 @@ import { convertAddressText } from "../src";
 
 describe("convertAddressText", () => {
   it("converts full address text", () => {
-    const result = convertAddressText("123 Lê Lợi, Phường Lộc Thọ, TP Nha Trang, Khánh Hòa");
+    const result = convertAddressText("123 Lê Lợi, Phường Vĩnh Hòa, TP Nha Trang, Khánh Hòa");
     expect(result.success).toBe(true);
-    expect(result.newAddress?.wardCode).toBe("56001");
+    expect(result.newAddress?.wardCode).toBe("22333");
   });
 
   it("preserves street address", () => {
-    const result = convertAddressText("123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa");
+    const result = convertAddressText("123 Le Loi, P Vinh Hoa, TP Nha Trang, Khanh Hoa");
     expect(result.streetAddress).toBe("123 Le Loi");
   });
 
   it("supports abbreviations", () => {
-    const result = convertAddressText("123 Le Loi, P. Loc Tho, TP. Nha Trang, Khanh Hoa");
+    const result = convertAddressText("123 Le Loi, P. Vinh Hoa, TP. Nha Trang, Khanh Hoa");
     expect(result.success).toBe(true);
   });
 
