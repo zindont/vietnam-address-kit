@@ -63,29 +63,31 @@ const structuredSamples: Array<StructuredOldAddressInput & { label: string }> = 
 function appHtml(): string {
   return `
     <header class="hero">
-      <div>
-        <p class="eyebrow">Interactive browser playground</p>
-        <h1>vn-address-kit</h1>
-        <p class="hero-copy">
-          Try Vietnam administrative address conversion, search, validation, confidence scoring,
-          warnings, and candidates using the bundled official 2025 two-level dataset.
-        </p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="https://www.npmjs.com/package/vn-address-kit" target="_blank" rel="noreferrer">npm package</a>
-          <a class="button" href="https://github.com/zindont/vn-address-kit" target="_blank" rel="noreferrer">GitHub</a>
+      <div class="hero-inner">
+        <div class="hero-content">
+          <p class="eyebrow">Interactive browser playground</p>
+          <h1>vn-address-kit</h1>
+          <p class="hero-copy">
+            Try Vietnam administrative address conversion, search, validation, confidence scoring,
+            warnings, and candidates using the bundled official 2025 two-level dataset.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://www.npmjs.com/package/vn-address-kit" target="_blank" rel="noreferrer">npm package</a>
+            <a class="button" href="https://github.com/zindont/vn-address-kit" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
         </div>
+        <aside class="data-card" aria-label="Dataset summary">
+          <span class="badge">${dataVersion.sample ? "sample" : "official"}</span>
+          <strong>${dataVersion.version}</strong>
+          <span>${provinces.length.toLocaleString()} provinces/cities</span>
+          <span>${wards.length.toLocaleString()} wards/communes/special zones</span>
+          <small>Verify legally critical workflows against official state sources.</small>
+        </aside>
       </div>
-      <aside class="data-card" aria-label="Dataset summary">
-        <span class="badge">${dataVersion.sample ? "sample" : "official"}</span>
-        <strong>${dataVersion.version}</strong>
-        <span>${provinces.length.toLocaleString()} provinces/cities</span>
-        <span>${wards.length.toLocaleString()} wards/communes/special zones</span>
-        <small>Verify legally critical workflows against official state sources.</small>
-      </aside>
     </header>
 
     <main class="layout">
-      <section class="panel panel-wide" aria-labelledby="convert-text-title">
+      <section class="panel panel-convert panel-wide" aria-labelledby="convert-text-title">
         <div class="panel-heading">
           <div>
             <p class="eyebrow">Free-text conversion</p>
@@ -103,7 +105,7 @@ function appHtml(): string {
         <pre id="text-output" class="json-output" aria-live="polite"></pre>
       </section>
 
-      <section class="panel" aria-labelledby="structured-title">
+      <section class="panel panel-structured" aria-labelledby="structured-title">
         <div class="panel-heading">
           <div>
             <p class="eyebrow">Structured conversion</p>
@@ -124,7 +126,7 @@ function appHtml(): string {
         <pre id="structured-output" class="json-output" aria-live="polite"></pre>
       </section>
 
-      <section class="panel" aria-labelledby="search-title">
+      <section class="panel panel-search" aria-labelledby="search-title">
         <div class="panel-heading">
           <div>
             <p class="eyebrow">Lookup</p>
@@ -153,7 +155,7 @@ function appHtml(): string {
         <pre id="search-output" class="json-output" aria-live="polite"></pre>
       </section>
 
-      <section class="panel panel-wide" aria-labelledby="validate-title">
+      <section class="panel panel-validate panel-wide" aria-labelledby="validate-title">
         <div class="panel-heading">
           <div>
             <p class="eyebrow">Validation</p>
