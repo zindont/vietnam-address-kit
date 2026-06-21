@@ -1,6 +1,6 @@
 {
   "name": "vn-address-kit",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Production-ready TypeScript toolkit for Vietnam administrative address search, validation, normalization, conversion, and CSV migration.",
   "type": "module",
   "main": "./dist/index.cjs",
