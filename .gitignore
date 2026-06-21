@@ -3,3 +3,6 @@ dist/
 coverage/
 *.log
 .DS_Store
+
+# pnpm (project uses npm; ignore stray pnpm lockfile)
+pnpm-lock.yaml
