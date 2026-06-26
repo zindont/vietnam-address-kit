@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report incorrect behavior in vn-address-kit
+about: Report incorrect behavior in vietnam-address-kit
 title: "[Bug]: "
 labels: bug
 assignees: ""
@@ -20,6 +20,6 @@ assignees: ""
 
 ## Environment
 
-- `vn-address-kit` version:
+- `vietnam-address-kit` version:
 - Node.js version:
 - OS:
