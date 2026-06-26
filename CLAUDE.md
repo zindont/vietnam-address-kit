@@ -70,7 +70,7 @@ convertBatch([...]) maps each item through one of the two above
 
 ### Issue tracker
 
-Issues are tracked in GitHub Issues (`zindont/vn-address-kit`) via the `gh` CLI; external PRs are also a triage surface. See `docs/agents/issue-tracker.md`.
+Issues are tracked in GitHub Issues (`zindont/vietnam-address-kit`) via the `gh` CLI; external PRs are also a triage surface. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 

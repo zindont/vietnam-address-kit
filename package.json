@@ -8,7 +8,6 @@
   "types": "./dist/index.d.ts",
   "bin": {
     "vietnam-address-kit": "dist/cli/index.js",
-    "vn-address-kit": "dist/cli/index.js",
     "vn-address": "dist/cli/index.js"
   },
   "files": [
@@ -76,12 +75,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zindont/vn-address-kit.git"
+    "url": "git+https://github.com/zindont/vietnam-address-kit.git"
   },
   "bugs": {
-    "url": "https://github.com/zindont/vn-address-kit/issues"
+    "url": "https://github.com/zindont/vietnam-address-kit/issues"
   },
-  "homepage": "https://github.com/zindont/vn-address-kit#readme",
+  "homepage": "https://github.com/zindont/vietnam-address-kit#readme",
   "publishConfig": {
     "access": "public"
   },

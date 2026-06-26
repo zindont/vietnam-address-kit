@@ -44,7 +44,7 @@ npx vietnam-address-kit@latest migrate customers.csv \
 
 ## Use The Short Binary Name
 
-The package exposes `vietnam-address-kit`, `vn-address-kit`, and `vn-address` binaries. With `npx`, use `--package` when you want the short name:
+The package exposes `vietnam-address-kit` and `vn-address` binaries. With `npx`, use `--package` when you want the short name:
 
 ```bash
 npx --package vietnam-address-kit@latest vn-address version

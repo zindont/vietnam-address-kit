@@ -1,12 +1,11 @@
 # CLI Reference
 
-The package exposes three equivalent binaries:
+The package exposes two equivalent binaries:
 
 - `vietnam-address-kit`
-- `vn-address-kit`
 - `vn-address`
 
-Use `vietnam-address-kit` for `npx` package-name execution, `vn-address-kit` for legacy compatibility, and `vn-address` for shorter local/global usage.
+Use `vietnam-address-kit` for `npx` package-name execution and `vn-address` for shorter local/global usage.
 
 ## `version`
 

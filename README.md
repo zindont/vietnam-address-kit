@@ -1,6 +1,6 @@
 # vietnam-address-kit
 
-[![npm version](https://img.shields.io/npm/v/vietnam-address-kit.svg)](https://www.npmjs.com/package/vietnam-address-kit) [![CI](https://github.com/zindont/vn-address-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/zindont/vn-address-kit/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/vietnam-address-kit.svg)](https://www.npmjs.com/package/vietnam-address-kit) [![CI](https://github.com/zindont/vietnam-address-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/zindont/vietnam-address-kit/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 > Vietnam address migration toolkit for the 2025 two-level administrative reform.
 
@@ -16,13 +16,11 @@ Many systems still store addresses as `street, ward, district, province`, while 
 
 `vietnam-address-kit` is published as a stable open-source package with a documented API, CLI, tests, release checklist, and community files. It bundles the official 2025 two-level administrative dataset: 34 provinces and 3,321 wards. The dataset is generated from the national conversion table under Quyết định 19/2025/QĐ-TTg and reconciled to official totals.
 
-The package was previously published as `vn-address-kit`. Use `vietnam-address-kit` for new installs; the CLI keeps `vn-address-kit` and `vn-address` aliases for compatibility.
-
 ## Public Links
 
 - NPM package: [https://www.npmjs.com/package/vietnam-address-kit](https://www.npmjs.com/package/vietnam-address-kit)
-- Browser playground: [https://zindont.github.io/vn-address-kit/](https://zindont.github.io/vn-address-kit/)
-- GitHub repository: [https://github.com/zindont/vn-address-kit](https://github.com/zindont/vn-address-kit)
+- Browser playground: [https://zindont.github.io/vietnam-address-kit/](https://zindont.github.io/vietnam-address-kit/)
+- GitHub repository: [https://github.com/zindont/vietnam-address-kit](https://github.com/zindont/vietnam-address-kit)
 
 ## Installation
 
@@ -59,7 +57,7 @@ npx vietnam-address-kit@latest search province "khanh hoa"
 
 ## Browser Playground
 
-Try the toolkit in your browser: [vietnam-address-kit Playground](https://zindont.github.io/vn-address-kit/).
+Try the toolkit in your browser: [vietnam-address-kit Playground](https://zindont.github.io/vietnam-address-kit/).
 
 ## Convert Address Text
 

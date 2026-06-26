@@ -5,8 +5,8 @@ Thank you for helping improve `vietnam-address-kit`. This project aims to be a r
 ## Development Setup
 
 ```bash
-git clone https://github.com/zindont/vn-address-kit.git
-cd vn-address-kit
+git clone https://github.com/zindont/vietnam-address-kit.git
+cd vietnam-address-kit
 npm install
 npm run release:check
 ```

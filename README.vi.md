@@ -1,6 +1,6 @@
 # vietnam-address-kit
 
-[![npm version](https://img.shields.io/npm/v/vietnam-address-kit.svg)](https://www.npmjs.com/package/vietnam-address-kit) [![CI](https://github.com/zindont/vn-address-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/zindont/vn-address-kit/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/vietnam-address-kit.svg)](https://www.npmjs.com/package/vietnam-address-kit) [![CI](https://github.com/zindont/vietnam-address-kit/actions/workflows/ci.yml/badge.svg)](https://github.com/zindont/vietnam-address-kit/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 > Bộ công cụ chuyển đổi địa chỉ hành chính Việt Nam cho mô hình 2 cấp năm 2025.
 
@@ -16,13 +16,11 @@ Nhiều hệ thống vẫn lưu địa chỉ theo dạng `số nhà/đường, p
 
 `vietnam-address-kit` đã được phát hành như một package mã nguồn mở ổn định, có API, CLI, bộ kiểm thử, checklist phát hành và các file cộng đồng. Package được đóng gói kèm bộ dữ liệu hành chính 2 cấp chính thức năm 2025 gồm 34 tỉnh/thành và 3.321 xã/phường/đặc khu. Bộ dữ liệu được sinh từ bảng chuyển đổi quốc gia theo Quyết định 19/2025/QĐ-TTg và được đối chiếu với tổng số chính thức.
 
-Package trước đây được phát hành với tên `vn-address-kit`. Với cài đặt mới, hãy dùng `vietnam-address-kit`; CLI vẫn giữ alias `vn-address-kit` và `vn-address` để tương thích.
-
 ## Link public
 
 - NPM package: [https://www.npmjs.com/package/vietnam-address-kit](https://www.npmjs.com/package/vietnam-address-kit)
-- Browser playground: [https://zindont.github.io/vn-address-kit/](https://zindont.github.io/vn-address-kit/)
-- GitHub repository: [https://github.com/zindont/vn-address-kit](https://github.com/zindont/vn-address-kit)
+- Browser playground: [https://zindont.github.io/vietnam-address-kit/](https://zindont.github.io/vietnam-address-kit/)
+- GitHub repository: [https://github.com/zindont/vietnam-address-kit](https://github.com/zindont/vietnam-address-kit)
 
 ## Cài đặt
 
@@ -59,7 +57,7 @@ npx vietnam-address-kit@latest search province "khanh hoa"
 
 ## Playground trên trình duyệt
 
-Thử toolkit trực tiếp trên trình duyệt: [vietnam-address-kit Playground](https://zindont.github.io/vn-address-kit/).
+Thử toolkit trực tiếp trên trình duyệt: [vietnam-address-kit Playground](https://zindont.github.io/vietnam-address-kit/).
 
 ## Chuyển đổi địa chỉ dạng text
 

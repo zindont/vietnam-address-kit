@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   root: fileURLToPath(new URL(".", import.meta.url)),
-  base: "/vn-address-kit/",
+  base: "/vietnam-address-kit/",
   resolve: {
     alias: {
       "vietnam-address-kit": fileURLToPath(new URL("../src/index.ts", import.meta.url))

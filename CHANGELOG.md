@@ -8,8 +8,8 @@
 
 ### Changed
 
-- Renamed the npm package from `vn-address-kit` to `vietnam-address-kit` for better npm and Google discoverability.
-- Added the `vietnam-address-kit` CLI binary while keeping the legacy `vn-address-kit` and short `vn-address` aliases.
+- Renamed the npm package to `vietnam-address-kit` for better npm and Google discoverability.
+- Added the `vietnam-address-kit` CLI binary while keeping the short `vn-address` alias.
 - Added npm-focused package keywords for address parsing, conversion, administrative units, CSV migration, and the 2025 reform.
 - Added direct public links to npm, GitHub, and the browser playground in both English and Vietnamese READMEs.
 
@@ -40,7 +40,7 @@
 
 ## 1.0.0 - 2026-06-20
 
-- Published the first stable open-source release of `vn-address-kit`.
+- Published the first stable open-source release.
 - Added TypeScript APIs for data lookup, normalization, search, validation, conversion, parsing, and batch conversion.
 - Added the `vn-address` CLI with `version`, `convert`, `search`, and `migrate` commands.
 - Added sample data for Khánh Hòa, Hà Nội, and TP. Hồ Chí Minh for tests and examples.

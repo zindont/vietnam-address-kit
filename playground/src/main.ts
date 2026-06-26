@@ -73,7 +73,7 @@ function appHtml(): string {
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://www.npmjs.com/package/vietnam-address-kit" target="_blank" rel="noreferrer">npm package</a>
-            <a class="button" href="https://github.com/zindont/vn-address-kit" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="button" href="https://github.com/zindont/vietnam-address-kit" target="_blank" rel="noreferrer">GitHub</a>
           </div>
         </div>
         <aside class="data-card" aria-label="Dataset summary">
