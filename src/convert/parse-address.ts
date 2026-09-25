@@ -16,8 +16,40 @@ function parseWithoutSeparators(text: string): ParsedAddress {
   const provinceMatches = matchLegacySuffix(tokens, getLegacyProvinces());
   const province = uniqueSuffix(provinceMatches);
   if (!province) {
+    if (provinceMatches.length === 0) {
+      const inferred = matchLegacySuffix(tokens, getLegacyDistricts()).flatMap((district) => {
+        const beforeDistrict = tokens.slice(0, -district.tokenCount);
+        const wardPool = getLegacyWards().filter((unit) => unit.provinceCode === district.unit.provinceCode && unit.districtCode === district.unit.code);
+        const ward = uniqueSuffix(matchLegacySuffix(beforeDistrict, wardPool));
+        if (!ward) return [];
+        const beforeWard = beforeDistrict.slice(0, -ward.tokenCount);
+        const wardText = beforeDistrict.slice(-ward.tokenCount).join(" ");
+        if (!WARD_HINT.test(wardText) && /^\d+[a-z]?\/?\d*$/iu.test(beforeWard.join(" ").trim())) return [];
+        const inferredProvince = getLegacyProvinces().find((unit) => unit.code === district.unit.provinceCode);
+        return inferredProvince ? [{ province: inferredProvince, district, ward, streetTokens: beforeWard }] : [];
+      });
+      const unique = new Map(inferred.map((item) => [`${item.province.code}:${item.district.unit.code}:${item.ward.unit.code}`, item]));
+      if (unique.size === 1) {
+        const match = unique.values().next().value!;
+        const approximate = match.district.distance > 0 || match.ward.distance > 0;
+        const streetAddress = match.streetTokens.join(" ").replace(/[\s,;]+$/u, "").trim();
+        return {
+          input: text,
+          streetAddress: streetAddress || undefined,
+          province: match.province.nameWithType,
+          district: match.district.unit.nameWithType,
+          ward: match.ward.unit.nameWithType,
+          confidence: approximate ? 0.55 : 0.7,
+          approximate,
+          inferredProvince: true,
+          warnings: ["Province inferred from the unique district/ward pair; review the result.",
+            ...(approximate ? ["One or more administrative names were matched approximately; review the result."] : [])]
+        };
+      }
+      if (unique.size > 1) warnings.push("Multiple district/ward pairs match; province cannot be inferred safely.");
+    }
     return { input: text, streetAddress: text.trim() || undefined, confidence: 0.2,
-      warnings: [provinceMatches.length > 1 ? "Multiple legacy provinces match the address suffix." : "Province could not be detected from the address suffix."] };
+      warnings: warnings.length > 0 ? warnings : [provinceMatches.length > 1 ? "Multiple legacy provinces match the address suffix." : "Province could not be detected from the address suffix."] };
   }
   let remaining = tokens.slice(0, -province.tokenCount);
   const districtPool = getLegacyDistricts().filter((unit) => unit.provinceCode === province.unit.code);

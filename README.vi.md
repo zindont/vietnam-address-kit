@@ -66,9 +66,11 @@ import { convertAddressText } from "vietnam-address-kit";
 
 convertAddressText("123 Lê Lợi, Phường Lộc Thọ, TP Nha Trang, Khánh Hòa");
 convertAddressText("123 Le Loi P Vinh Hoaa TP Nha Trang Khanh Hoa");
+convertAddressText("58 doan tran nghiep vinh phuoc nha trang");
 ```
 
 Ví dụ thứ hai không có dấu phẩy và gõ sai một chữ. Kết quả khớp gần đúng có cảnh báo và `confidence` tối đa `0.7`.
+Ví dụ thứ ba thiếu tỉnh; cặp quận/huyện và xã/phường duy nhất giúp suy ra tỉnh, kèm cảnh báo và `confidence` tối đa `0.8`.
 
 ## Chuyển đổi địa chỉ có cấu trúc
 

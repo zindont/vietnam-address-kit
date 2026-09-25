@@ -66,9 +66,11 @@ import { convertAddressText } from "vietnam-address-kit";
 
 convertAddressText("123 Lê Lợi, Phường Lộc Thọ, TP Nha Trang, Khánh Hòa");
 convertAddressText("123 Le Loi P Vinh Hoaa TP Nha Trang Khanh Hoa");
+convertAddressText("58 doan tran nghiep vinh phuoc nha trang");
 ```
 
 The second example has no commas and a small spelling error. Approximate matches carry a warning and confidence of at most `0.7`.
+The third omits the province; a unique district and ward pair can identify it, with a warning and confidence of at most `0.8`.
 
 ## Convert Structured Address
 

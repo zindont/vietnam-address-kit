@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { convertAddressText } from "../src";
+import { convertAddressText, parseAddress } from "../src";
 
 describe("convertAddressText", () => {
   it("converts full address text", () => {
@@ -30,6 +30,29 @@ describe("convertAddressText", () => {
     expect(result.success).toBe(true);
     expect(result.streetAddress).toBe("123 Le Loi");
     expect(result.newAddress?.wardCode).toBe("22333");
+  });
+
+  it("infers a missing province from a unique district and ward pair", () => {
+    expect(parseAddress("58 doan tran nghiep vinh phuoc nha trang").inferredProvince).toBe(true);
+    const result = convertAddressText("58 doan tran nghiep vinh phuoc nha trang");
+    expect(result.success).toBe(true);
+    expect(result.streetAddress).toBe("58 doan tran nghiep");
+    expect(result.oldAddress?.provinceCode).toBe("56");
+    expect(result.oldAddress?.wardCode).toBe("22333");
+    expect(result.newAddress?.wardCode).toBe("22333");
+    expect(result.confidence).toBeLessThanOrEqual(0.8);
+    expect(result.warnings.some((warning) => warning.includes("Province inferred"))).toBe(true);
+  });
+
+  it("does not infer a province from a district without a ward", () => {
+    const result = convertAddressText("58 doan tran nghiep nha trang");
+    expect(result.success).toBe(false);
+  });
+
+  it("does not infer a province from a district and ward pair shared by provinces", () => {
+    const result = convertAddressText("123 duong abc vinh thanh vinh thanh");
+    expect(result.success).toBe(false);
+    expect(result.warnings.some((warning) => warning.includes("Multiple district/ward pairs"))).toBe(true);
   });
 
   it("handles abbreviations written directly against names", () => {

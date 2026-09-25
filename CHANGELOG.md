@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.2.1 - 2026-09-25
+
+### Fixed
+
+- Infer an omitted province when the trailing legacy district and ward form a unique pair. For example, `58 doan tran nghiep vinh phuoc nha trang` now resolves to Vĩnh Phước, Nha Trang, Khánh Hòa, preserving `58 doan tran nghiep` as the street address.
+- Add an inference warning and cap confidence at `0.8` (`0.7` if a name also needs spelling correction). Do not infer a province from a district alone or from ambiguous district/ward pairs.
+- Expose `inferredProvince` on `ParsedAddress` so callers can distinguish inferred input from explicit province input.
+
 ## 1.2.0 - 2026-09-25
 
 ### Added

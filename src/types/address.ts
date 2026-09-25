@@ -13,5 +13,6 @@ export interface ParsedAddress {
   ward?: string;
   confidence: number;
   approximate?: boolean;
+  inferredProvince?: boolean;
   warnings: string[];
 }

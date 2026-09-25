@@ -27,6 +27,8 @@ convertAddressText("123 Le Loi P Vinh Hoa TP Nha Trang Khanh Hoa");
 
 Missing accents and small spelling errors are accepted when the legacy unit can be identified. Approximate matches are marked with a warning and confidence no higher than `0.7`. Ambiguous names still need review.
 
+When the province is omitted, the parser can infer it from a unique legacy district and ward pair (for example, `58 doan tran nghiep vinh phuoc nha trang`). This adds a warning and caps confidence at `0.8`; ambiguous pairs are not inferred.
+
 ## Convert Structured Fields
 
 ```ts

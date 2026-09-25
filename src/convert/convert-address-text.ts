@@ -26,9 +26,11 @@ export function convertAddressText(text: string): ConversionResult {
   return {
     ...converted,
     input: text,
-    confidence: parsed.approximate ? Math.min(converted.confidence, 0.7) : converted.confidence,
+    confidence: Math.min(converted.confidence, parsed.approximate ? 0.7 : 1, parsed.inferredProvince ? 0.8 : 1),
     strategy: parsed.approximate && converted.success ? "fuzzy" : converted.strategy,
-    candidates: parsed.approximate ? converted.candidates.map((candidate) => ({ ...candidate, confidence: Math.min(candidate.confidence, 0.7) })) : converted.candidates,
+    candidates: parsed.approximate || parsed.inferredProvince
+      ? converted.candidates.map((candidate) => ({ ...candidate, confidence: Math.min(candidate.confidence, parsed.approximate ? 0.7 : 1, parsed.inferredProvince ? 0.8 : 1) }))
+      : converted.candidates,
     warnings: [...parsed.warnings, ...converted.warnings]
   };
 }
