@@ -14,7 +14,7 @@ Many systems still store addresses as `street, ward, district, province`, while 
 
 ## Release Status
 
-`vietnam-address-kit` is published as a stable open-source package with a documented API, CLI, tests, release checklist, and community files. It bundles the official 2025 two-level administrative dataset: 34 provinces and 3,321 wards. The dataset is generated from the national conversion table under Quyết định 19/2025/QĐ-TTg and reconciled to official totals.
+`vietnam-address-kit` is published as a stable open-source package with a documented API, CLI, tests, release checklist, and community files. It bundles a two-level administrative dataset as of 25 September 2026: 34 provinces/cities and 3,321 wards/communes/special zones. The 2025 conversion table under Quyết định 19/2025/QĐ-TTg is supplemented by dated 2026 amendments and reconciled to official totals.
 
 ## Public Links
 
@@ -65,7 +65,10 @@ Try the toolkit in your browser: [vietnam-address-kit Playground](https://zindon
 import { convertAddressText } from "vietnam-address-kit";
 
 convertAddressText("123 Lê Lợi, Phường Lộc Thọ, TP Nha Trang, Khánh Hòa");
+convertAddressText("123 Le Loi P Vinh Hoaa TP Nha Trang Khanh Hoa");
 ```
+
+The second example has no commas and a small spelling error. Approximate matches carry a warning and confidence of at most `0.7`.
 
 ## Convert Structured Address
 
@@ -121,7 +124,7 @@ Results include `confidence` from `0` to `1`, a `strategy`, `warnings`, and `can
 
 ## Data Source
 
-The bundled dataset in `src/data/official/*.json` is generated from official national conversion files under Quyết định 19/2025/QĐ-TTg, National Assembly Standing Committee resolutions, and General Statistics Office reconciliation tables. Regenerate it with `npm run build:data`. For legally critical use, re-verify against `danhmuchanhchinh.nso.gov.vn`. See [Data Sources](docs/explanation/data-sources.md).
+The bundled dataset in `src/data/official/*.json` is generated from official national conversion files under Quyết định 19/2025/QĐ-TTg, National Assembly Standing Committee resolutions, General Statistics Office reconciliation tables, and dated 2026 amendments. Regenerate it with `npm run build:data`. For legally critical use, re-verify against `danhmuchanhchinh.nso.gov.vn`. See [Data Sources](docs/explanation/data-sources.md).
 
 ## Documentation
 
@@ -144,7 +147,7 @@ The bundled dataset in `src/data/official/*.json` is generated from official nat
 
 ## Limitations
 
-- The dataset reconciles to official 2025 totals, but legally critical workflows should still verify against official state sources.
+- The current dataset reconciles to official totals as of 25 September 2026, but legally critical workflows should still verify against official state sources.
 - Free-text parsing is practical but not exhaustive.
 - Ambiguous or low-confidence results are not forced into a single answer.
 - OCR errors, incomplete addresses, and historical edge cases may require manual review.

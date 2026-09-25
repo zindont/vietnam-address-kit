@@ -12,5 +12,6 @@ export interface ParsedAddress {
   district?: string;
   ward?: string;
   confidence: number;
+  approximate?: boolean;
   warnings: string[];
 }

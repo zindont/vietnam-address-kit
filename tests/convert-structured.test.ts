@@ -16,6 +16,14 @@ describe("convertOldToNew", () => {
     expect(result.newAddress?.provinceCode).toBe("56");
   });
 
+  it("recovers a short spelling error without treating it as an exact match", () => {
+    const result = convertOldToNew({ province: "Khánh Hoà", district: "Nha Trang", ward: "Vinh Hoaa" });
+    expect(result.success).toBe(true);
+    expect(result.newAddress?.wardCode).toBe("22333");
+    expect(result.strategy).toBe("fuzzy");
+    expect(result.confidence).toBeLessThanOrEqual(0.7);
+  });
+
   it("resolves a population split to the population successor (split_population)", () => {
     const result = convertOldToNew({ province: "Hà Nội", district: "Tây Hồ", ward: "Thụy Khuê" });
     expect(result.success).toBe(true);

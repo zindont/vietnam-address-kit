@@ -7301,8 +7301,8 @@
   {
     "code": "07294",
     "name": "Bố Hạ",
-    "type": "commune",
-    "nameWithType": "Xã Bố Hạ",
+    "type": "ward",
+    "nameWithType": "Phường Bố Hạ",
     "provinceCode": "24",
     "slug": "bo-ha",
     "normalizedName": "bo ha"
@@ -7355,8 +7355,8 @@
   {
     "code": "07375",
     "name": "Lạng Giang",
-    "type": "commune",
-    "nameWithType": "Xã Lạng Giang",
+    "type": "ward",
+    "nameWithType": "Phường Lạng Giang",
     "provinceCode": "24",
     "slug": "lang-giang",
     "normalizedName": "lang giang"
@@ -7373,8 +7373,8 @@
   {
     "code": "07399",
     "name": "Kép",
-    "type": "commune",
-    "nameWithType": "Xã Kép",
+    "type": "ward",
+    "nameWithType": "Phường Kép",
     "provinceCode": "24",
     "slug": "kep",
     "normalizedName": "kep"
@@ -7400,8 +7400,8 @@
   {
     "code": "07444",
     "name": "Lục Nam",
-    "type": "commune",
-    "nameWithType": "Xã Lục Nam",
+    "type": "ward",
+    "nameWithType": "Phường Lục Nam",
     "provinceCode": "24",
     "slug": "luc-nam",
     "normalizedName": "luc nam"
@@ -7642,9 +7642,9 @@
   },
   {
     "code": "07840",
-    "name": "Hiệp Hòa",
-    "type": "commune",
-    "nameWithType": "Xã Hiệp Hòa",
+    "name": "Hiệp Hoà",
+    "type": "ward",
+    "nameWithType": "Phường Hiệp Hoà",
     "provinceCode": "24",
     "slug": "hiep-hoa",
     "normalizedName": "hiep hoa"
@@ -7670,8 +7670,8 @@
   {
     "code": "09193",
     "name": "Yên Phong",
-    "type": "commune",
-    "nameWithType": "Xã Yên Phong",
+    "type": "ward",
+    "nameWithType": "Phường Yên Phong",
     "provinceCode": "24",
     "slug": "yen-phong",
     "normalizedName": "yen phong"
@@ -7715,8 +7715,8 @@
   {
     "code": "09292",
     "name": "Phù Lãng",
-    "type": "commune",
-    "nameWithType": "Xã Phù Lãng",
+    "type": "ward",
+    "nameWithType": "Phường Phù Lãng",
     "provinceCode": "24",
     "slug": "phu-lang",
     "normalizedName": "phu lang"
@@ -7724,8 +7724,8 @@
   {
     "code": "09313",
     "name": "Chi Lăng",
-    "type": "commune",
-    "nameWithType": "Xã Chi Lăng",
+    "type": "ward",
+    "nameWithType": "Phường Chi Lăng",
     "provinceCode": "24",
     "slug": "chi-lang",
     "normalizedName": "chi lang"
@@ -7733,8 +7733,8 @@
   {
     "code": "09319",
     "name": "Tiên Du",
-    "type": "commune",
-    "nameWithType": "Xã Tiên Du",
+    "type": "ward",
+    "nameWithType": "Phường Tiên Du",
     "provinceCode": "24",
     "slug": "tien-du",
     "normalizedName": "tien du"
@@ -7778,8 +7778,8 @@
   {
     "code": "09454",
     "name": "Gia Bình",
-    "type": "commune",
-    "nameWithType": "Xã Gia Bình",
+    "type": "ward",
+    "nameWithType": "Phường Gia Bình",
     "provinceCode": "24",
     "slug": "gia-binh",
     "normalizedName": "gia binh"
@@ -7805,8 +7805,8 @@
   {
     "code": "09475",
     "name": "Nhân Thắng",
-    "type": "commune",
-    "nameWithType": "Xã Nhân Thắng",
+    "type": "ward",
+    "nameWithType": "Phường Nhân Thắng",
     "provinceCode": "24",
     "slug": "nhan-thang",
     "normalizedName": "nhan thang"
@@ -7823,8 +7823,8 @@
   {
     "code": "09496",
     "name": "Lương Tài",
-    "type": "commune",
-    "nameWithType": "Xã Lương Tài",
+    "type": "ward",
+    "nameWithType": "Phường Lương Tài",
     "provinceCode": "24",
     "slug": "luong-tai",
     "normalizedName": "luong tai"
@@ -22484,8 +22484,8 @@
   {
     "code": "25270",
     "name": "Lộc Ninh",
-    "type": "commune",
-    "nameWithType": "Xã Lộc Ninh",
+    "type": "ward",
+    "nameWithType": "Phường Lộc Ninh",
     "provinceCode": "75",
     "slug": "loc-ninh",
     "normalizedName": "loc ninh"
@@ -22592,8 +22592,8 @@
   {
     "code": "25357",
     "name": "Tân Khai",
-    "type": "commune",
-    "nameWithType": "Xã Tân Khai",
+    "type": "ward",
+    "nameWithType": "Phường Tân Khai",
     "provinceCode": "75",
     "slug": "tan-khai",
     "normalizedName": "tan khai"
@@ -22601,8 +22601,8 @@
   {
     "code": "25363",
     "name": "Đồng Phú",
-    "type": "commune",
-    "nameWithType": "Xã Đồng Phú",
+    "type": "ward",
+    "nameWithType": "Phường Đồng Phú",
     "provinceCode": "75",
     "slug": "dong-phu",
     "normalizedName": "dong phu"
@@ -22700,8 +22700,8 @@
   {
     "code": "26116",
     "name": "Tân Phú",
-    "type": "commune",
-    "nameWithType": "Xã Tân Phú",
+    "type": "ward",
+    "nameWithType": "Phường Tân Phú",
     "provinceCode": "75",
     "slug": "tan-phu",
     "normalizedName": "tan phu"
@@ -22745,8 +22745,8 @@
   {
     "code": "26170",
     "name": "Trị An",
-    "type": "commune",
-    "nameWithType": "Xã Trị An",
+    "type": "ward",
+    "nameWithType": "Phường Trị An",
     "provinceCode": "75",
     "slug": "tri-an",
     "normalizedName": "tri an"
@@ -22817,8 +22817,8 @@
   {
     "code": "26248",
     "name": "Trảng Bom",
-    "type": "commune",
-    "nameWithType": "Xã Trảng Bom",
+    "type": "ward",
+    "nameWithType": "Phường Trảng Bom",
     "provinceCode": "75",
     "slug": "trang-bom",
     "normalizedName": "trang bom"
@@ -22880,8 +22880,8 @@
   {
     "code": "26326",
     "name": "Dầu Giây",
-    "type": "commune",
-    "nameWithType": "Xã Dầu Giây",
+    "type": "ward",
+    "nameWithType": "Phường Dầu Giây",
     "provinceCode": "75",
     "slug": "dau-giay",
     "normalizedName": "dau giay"
@@ -22934,8 +22934,8 @@
   {
     "code": "26368",
     "name": "Long Thành",
-    "type": "commune",
-    "nameWithType": "Xã Long Thành",
+    "type": "ward",
+    "nameWithType": "Phường Long Thành",
     "provinceCode": "75",
     "slug": "long-thanh",
     "normalizedName": "long thanh"
@@ -22979,8 +22979,8 @@
   {
     "code": "26425",
     "name": "Xuân Lộc",
-    "type": "commune",
-    "nameWithType": "Xã Xuân Lộc",
+    "type": "ward",
+    "nameWithType": "Phường Xuân Lộc",
     "provinceCode": "75",
     "slug": "xuan-loc",
     "normalizedName": "xuan loc"
@@ -23033,8 +23033,8 @@
   {
     "code": "26485",
     "name": "Nhơn Trạch",
-    "type": "commune",
-    "nameWithType": "Xã Nhơn Trạch",
+    "type": "ward",
+    "nameWithType": "Phường Nhơn Trạch",
     "provinceCode": "75",
     "slug": "nhon-trach",
     "normalizedName": "nhon trach"

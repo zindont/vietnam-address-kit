@@ -1,5 +1,28 @@
 # Changelog
 
+## 1.2.0 - 2026-09-25
+
+### Added
+
+- Detect legacy province, district, and ward names in free-text addresses even when administrative units are separated only by spaces. Prefixes such as `P.` and `TP.` are optional; comma-separated input continues to work.
+- Recover small spelling errors in structured and free-text administrative names. Matching remains conservative: ambiguous names do not force a single result.
+- Expose `approximate` on `ParsedAddress` when a separator-free parse uses a spelling correction.
+
+### Changed
+
+- Mark approximate conversions with a warning and the `fuzzy` strategy, with confidence capped at `0.7`.
+- Recognize abbreviations directly attached to names, such as `P.Vinh Hoa` and `TP.Nha Trang`. Fixed prefix normalization so place names beginning with `Q`, such as Quảng Ninh, are not misread as `Quận`.
+- Avoid interpreting a bare street name after a house number as a ward when parsing text without commas.
+- Updated English and Vietnamese usage examples and the API, conversion, data-source, and verification guides.
+- Updated Vitest to 4.1.11 and refreshed transitive build/test dependencies to resolve npm audit findings. CI runs tests on Node.js 20 and 22 and separately verifies the published runtime on Node.js 18.
+
+### Data
+
+- Updated the current administrative catalog through 2026-09-25: Đồng Nai (`75`), Quảng Ninh (`22`), and Bắc Ninh (`24`) are centrally governed cities under resolutions `30/2026/QH16`, `36/2026/QH16`, and `39/2026/QH16`.
+- Reclassified 10 communes in Đồng Nai and 12 in Bắc Ninh as wards under resolutions `237/NQ-UBTVQH16` and `388/NQ-UBTVQH16`. Their codes and province assignments are unchanged.
+- Added `data/source/current-amendments-2026.json` to the data build because the official 2025 conversion workbook has not incorporated the 2026 amendments. The 2025 legacy data and 10,571 mapping edges are unchanged.
+- Advanced `getDataVersion()` to `official-2026.09.25`. Totals remain 34 province-level units and 3,321 commune-level units: 9 cities, 25 provinces, 710 wards, 2,598 communes, and 13 special zones.
+
 ## 1.1.1 - 2026-06-26
 
 ### Fixed

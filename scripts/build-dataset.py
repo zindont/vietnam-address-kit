@@ -113,6 +113,45 @@ def classify(note: str, fan_out: int, prov_changed: bool) -> str:
 # ---------------------------------------------------------------------------
 
 DOI_CHIEU = ROOT / "data" / "source" / "doi-chieu-2024-09-01.xls"
+CURRENT_AMENDMENTS = ROOT / "data" / "source" / "current-amendments-2026.json"
+
+
+def apply_current_amendments(cur_prov, cur_ward):
+    """Apply dated official changes after the 2025 conversion-table baseline.
+
+    The NSO conversion spreadsheet has not been revised for these 2026 changes.
+    Keep its historical mapping edges intact and amend only the current catalog.
+    """
+    amendments = json.loads(CURRENT_AMENDMENTS.read_text(encoding="utf-8"))
+    seen_provinces, seen_wards = set(), set()
+    for change in amendments["provinceAmendments"]:
+        code, name = change["code"], change["name"]
+        if code in seen_provinces:
+            raise ValueError(f"duplicate province amendment: {code}")
+        seen_provinces.add(code)
+        record = cur_prov.get(code)
+        if not record or record["name"] != name or record["type"] != "province":
+            raise ValueError(f"province amendment does not match baseline: {code} {name}")
+        if change["effectiveDate"] > amendments["asOf"]:
+            raise ValueError(f"future province amendment: {code}")
+        record["type"] = "city"
+        record["nameWithType"] = f"Thành phố {name}"
+
+    for change in amendments["wardAmendments"]:
+        code, name = change["code"], clean(change["name"])
+        if code in seen_wards:
+            raise ValueError(f"duplicate ward amendment: {code}")
+        seen_wards.add(code)
+        record = cur_ward.get(code)
+        if (not record or record["provinceCode"] != change["provinceCode"]
+                or normalized(record["name"]) != normalized(name)
+                or record["type"] != "commune"):
+            raise ValueError(f"ward amendment does not match baseline: {code} {name}")
+        if change["effectiveDate"] > amendments["asOf"]:
+            raise ValueError(f"future ward amendment: {code}")
+        record.update({"name": name, "type": "ward", "nameWithType": f"Phường {name}",
+                       "slug": slugify(name), "normalizedName": normalized(name)})
+    return len(seen_provinces), len(seen_wards)
 
 
 def bare(label: str) -> str:
@@ -341,6 +380,8 @@ def main() -> int:
     # attach pre-2025 former names (Phước Tiến → Tân Tiến, …) to surviving legacy wards
     former_attached, former_skipped = attach_former_names(leg_ward, mappings)
 
+    amended_provinces, amended_wards = apply_current_amendments(cur_prov, cur_ward)
+
     datasets = {
         "current-provinces": list(cur_prov.values()),
         "current-wards": list(cur_ward.values()),
@@ -382,6 +423,7 @@ def main() -> int:
         print(f"  {name:18s} {len(data):6d}")
     from collections import Counter
     print("  new ward types:", dict(Counter(w["type"] for w in cur_ward.values())))
+    print(f"  2026 amendments: {amended_provinces} provinces, {amended_wards} wards")
     print("  mapping types:", dict(Counter(m["type"] for m in mappings)))
     print(f"  split_population wards: {sum(1 for m in mappings if m['type']=='split_population')}")
     total_former = sum(len(w.get("formerNames", [])) for w in leg_ward.values())

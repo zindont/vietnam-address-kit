@@ -5,6 +5,7 @@ import type { StructuredOldAddressInput } from "../types/address";
 import type { AddressMapping, LegacyDistrict, LegacyFormerName, LegacyProvince, LegacyWard } from "../types/data";
 import type { BatchConversionResult, ConversionCandidate, ConversionResult, MatchStrategy } from "../types/result";
 import { calculateConfidence } from "./confidence";
+import { findBestLegacy, typoDistance } from "./legacy-match";
 
 const WARD_PREFIX_RE = /^(phuong|xa|thi tran|dac khu)\s+/;
 
@@ -15,20 +16,6 @@ function findFormerName(formerNames: LegacyFormerName[] | undefined, normalizedK
   if (!formerNames) return undefined;
   const bare = normalizedKeyword.replace(WARD_PREFIX_RE, "");
   return formerNames.find((former) => former.normalizedName === normalizedKeyword || former.normalizedName === bare);
-}
-
-function findBest<T extends { name: string; nameWithType: string; normalizedName: string }>(keyword: string | undefined, units: T[]): T[] {
-  if (!keyword) return [];
-  const normalized = normalizeText(keyword);
-  const exact = units.filter(
-    (unit) =>
-      normalizeText(unit.name) === normalized ||
-      normalizeText(unit.nameWithType) === normalized ||
-      normalizeText(unit.normalizedName) === normalized ||
-      Boolean(findFormerName((unit as { formerNames?: Array<{ name: string; normalizedName: string }> }).formerNames, normalized))
-  );
-  if (exact.length > 0) return exact;
-  return units.filter((unit) => normalizeText(unit.name).includes(normalized) || normalizeText(unit.nameWithType).includes(normalized));
 }
 
 function mappingToCandidate(mapping: AddressMapping, confidence: number, strategy: MatchStrategy, reason: string): ConversionCandidate | undefined {
@@ -61,7 +48,7 @@ function fail(input: StructuredOldAddressInput, warnings: string[], candidates: 
 
 export function convertOldToNew(input: StructuredOldAddressInput): ConversionResult {
   const warnings: string[] = [];
-  const provinceMatches = findBest<LegacyProvince>(input.province, getLegacyProvinces());
+  const provinceMatches = findBestLegacy<LegacyProvince>(input.province, getLegacyProvinces());
   if (provinceMatches.length === 0) {
     return fail(input, ["Legacy province could not be matched."]);
   }
@@ -72,16 +59,24 @@ export function convertOldToNew(input: StructuredOldAddressInput): ConversionRes
 
   for (const province of provinceMatches) {
     const districtPool = getLegacyDistricts().filter((district) => district.provinceCode === province.code);
-    const districtMatches = findBest<LegacyDistrict>(input.district, districtPool);
+    const districtMatches = findBestLegacy<LegacyDistrict>(input.district, districtPool);
     const districtCandidates = districtMatches.length > 0 ? districtMatches : districtPool;
 
     for (const district of districtCandidates) {
       const wardPool = getLegacyWards().filter((ward) => ward.provinceCode === province.code && ward.districtCode === district.code);
-      const wardMatches = findBest<LegacyWard>(input.ward, wardPool);
+      const wardMatches = findBestLegacy<LegacyWard>(input.ward, wardPool);
       if (input.ward && wardMatches.length === 0) continue;
       const wardCandidates = wardMatches.length > 0 ? wardMatches : [];
 
       for (const ward of wardCandidates) {
+        const approximate = Boolean(
+          (input.province && typoDistance(input.province, province) !== undefined) ||
+          (input.district && typoDistance(input.district, district) !== undefined) ||
+          (input.ward && typoDistance(input.ward, ward) !== undefined)
+        );
+        if (approximate && !warnings.includes("Administrative name matched approximately; review the result.")) {
+          warnings.push("Administrative name matched approximately; review the result.");
+        }
         // A split old ward has several mapping edges (one per successor new ward),
         // so collect them all — never just the first.
         const wardMappings = getMappings().filter(
@@ -108,8 +103,8 @@ export function convertOldToNew(input: StructuredOldAddressInput): ConversionRes
         const populationEdges = wardMappings.filter((mapping) => mapping.type === "split_population");
         if (wardMappings.length > 1 && populationEdges.length === 1) {
           const populationEdge = populationEdges[0]!;
-          const confidence = calculateConfidence("split_population", 1);
-          const candidate = mappingToCandidate(populationEdge, confidence, "split_population", "Old ward split; population assigned to this new ward.");
+          const confidence = Math.min(calculateConfidence("split_population", 1), approximate ? calculateConfidence("fuzzy") : 1);
+          const candidate = mappingToCandidate(populationEdge, confidence, approximate ? "fuzzy" : "split_population", "Old ward split; population assigned to this new ward.");
           if (candidate) {
             candidates.push(candidate);
             const others = wardMappings
@@ -121,7 +116,7 @@ export function convertOldToNew(input: StructuredOldAddressInput): ConversionRes
           continue;
         }
 
-        const strategy: MatchStrategy = matchedFormer
+        const strategy: MatchStrategy = approximate ? "fuzzy" : matchedFormer
           ? "former_ward"
           : input.district
             ? "old_ward_district_province_exact"
@@ -181,4 +176,3 @@ export function convertBatch(items: Array<string | StructuredOldAddressInput>): 
   const averageConfidence = results.length === 0 ? 0 : results.reduce((sum, result) => sum + result.confidence, 0) / results.length;
   return { total: results.length, matched, ambiguous, failed, averageConfidence, results };
 }
-

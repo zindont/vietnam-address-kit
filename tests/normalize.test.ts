@@ -17,4 +17,10 @@ describe("normalize", () => {
     expect(normalizeAdministrativePrefix("P. Loc Tho, Q. 1, TP. HCM")).toContain("quận");
     expect(normalizeAdministrativePrefix("P. Loc Tho, Q. 1, TP. HCM")).toContain("thành phố");
   });
+
+  it("does not expand the first letter of an ordinary place name", () => {
+    expect(normalizeText("Quảng Ninh")).toBe("quang ninh");
+    expect(normalizeText("Q.Ninh")).toBe("quan ninh");
+    expect(normalizeText("P.Vinh Hoa")).toBe("phuong vinh hoa");
+  });
 });

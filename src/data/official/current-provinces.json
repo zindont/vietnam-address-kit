@@ -74,16 +74,16 @@
   {
     "code": "22",
     "name": "Quảng Ninh",
-    "type": "province",
-    "nameWithType": "Tỉnh Quảng Ninh",
+    "type": "city",
+    "nameWithType": "Thành phố Quảng Ninh",
     "slug": "quang-ninh",
     "normalizedName": "quang ninh"
   },
   {
     "code": "24",
     "name": "Bắc Ninh",
-    "type": "province",
-    "nameWithType": "Tỉnh Bắc Ninh",
+    "type": "city",
+    "nameWithType": "Thành phố Bắc Ninh",
     "slug": "bac-ninh",
     "normalizedName": "bac ninh"
   },
@@ -210,8 +210,8 @@
   {
     "code": "75",
     "name": "Đồng Nai",
-    "type": "province",
-    "nameWithType": "Tỉnh Đồng Nai",
+    "type": "city",
+    "nameWithType": "Thành phố Đồng Nai",
     "slug": "dong-nai",
     "normalizedName": "dong nai"
   },

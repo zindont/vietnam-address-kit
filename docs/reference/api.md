@@ -147,10 +147,11 @@ Alias for hierarchy validation.
 
 ### `parseAddress(text)`
 
-Parses comma-separated address text from right to left.
+Parses address text from right to left. Comma-separated input is preferred; without commas, it detects trailing legacy province, district, and ward names using the administrative catalog. The latter accepts omitted prefixes and small spelling errors, but may return warnings or fail when names are ambiguous.
 
 ```ts
 parseAddress("123 Le Loi, P Loc Tho, TP Nha Trang, Khanh Hoa");
+parseAddress("123 Le Loi P Loc Tho TP Nha Trang Khanh Hoa");
 ```
 
 Returns:
@@ -163,6 +164,7 @@ Returns:
   district?: string;
   ward?: string;
   confidence: number;
+  approximate?: boolean;
   warnings: string[];
 }
 ```

@@ -19,7 +19,13 @@ if (result.success) {
 }
 ```
 
-Free-text conversion is convenient when you receive addresses from forms, OCR, customer data, CRM exports, or support tickets. The parser reads comma-separated text from right to left: province, district, ward, then street address.
+Free-text conversion is convenient when you receive addresses from forms, OCR, customer data, CRM exports, or support tickets. The parser reads from right to left: province, district, ward, then street address. Commas help, but the parser can also detect units separated only by spaces:
+
+```ts
+convertAddressText("123 Le Loi P Vinh Hoa TP Nha Trang Khanh Hoa");
+```
+
+Missing accents and small spelling errors are accepted when the legacy unit can be identified. Approximate matches are marked with a warning and confidence no higher than `0.7`. Ambiguous names still need review.
 
 ## Convert Structured Fields
 

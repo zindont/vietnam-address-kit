@@ -10,7 +10,7 @@ import { getDataVersion } from "vietnam-address-kit";
 console.log(getDataVersion());
 ```
 
-The current official dataset should report `sample: false` and a version tied to the 2025 reform.
+The current official dataset should report `sample: false` and `official-2026.09.25`. This is an as-of date for the current catalog; the old-to-new mapping still describes the 2025 reform.
 
 ## Regenerate The Dataset
 
@@ -21,7 +21,7 @@ pip install openpyxl xlrd
 npm run build:data
 ```
 
-The script reads files in `data/source/` and writes generated JSON to `src/data/official/`.
+The script reads the 2025 conversion and former-name files plus the dated 2026 amendments in `data/source/`, then writes generated JSON to `src/data/official/`.
 
 ## Review Generated Diffs
 

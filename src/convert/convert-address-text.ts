@@ -26,6 +26,9 @@ export function convertAddressText(text: string): ConversionResult {
   return {
     ...converted,
     input: text,
+    confidence: parsed.approximate ? Math.min(converted.confidence, 0.7) : converted.confidence,
+    strategy: parsed.approximate && converted.success ? "fuzzy" : converted.strategy,
+    candidates: parsed.approximate ? converted.candidates.map((candidate) => ({ ...candidate, confidence: Math.min(candidate.confidence, 0.7) })) : converted.candidates,
     warnings: [...parsed.warnings, ...converted.warnings]
   };
 }

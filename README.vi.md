@@ -14,7 +14,7 @@ Nhiều hệ thống vẫn lưu địa chỉ theo dạng `số nhà/đường, p
 
 ## Trạng thái phát hành
 
-`vietnam-address-kit` đã được phát hành như một package mã nguồn mở ổn định, có API, CLI, bộ kiểm thử, checklist phát hành và các file cộng đồng. Package được đóng gói kèm bộ dữ liệu hành chính 2 cấp chính thức năm 2025 gồm 34 tỉnh/thành và 3.321 xã/phường/đặc khu. Bộ dữ liệu được sinh từ bảng chuyển đổi quốc gia theo Quyết định 19/2025/QĐ-TTg và được đối chiếu với tổng số chính thức.
+`vietnam-address-kit` đã được phát hành như một package mã nguồn mở ổn định, có API, CLI, bộ kiểm thử, checklist phát hành và các file cộng đồng. Package được đóng gói kèm bộ dữ liệu hành chính 2 cấp đến ngày 25/09/2026 gồm 34 tỉnh/thành và 3.321 xã/phường/đặc khu. Bộ dữ liệu được sinh từ bảng chuyển đổi quốc gia theo Quyết định 19/2025/QĐ-TTg, bổ sung các thay đổi năm 2026 và đối chiếu với tổng số chính thức.
 
 ## Link public
 
@@ -65,7 +65,10 @@ Thử toolkit trực tiếp trên trình duyệt: [vietnam-address-kit Playgroun
 import { convertAddressText } from "vietnam-address-kit";
 
 convertAddressText("123 Lê Lợi, Phường Lộc Thọ, TP Nha Trang, Khánh Hòa");
+convertAddressText("123 Le Loi P Vinh Hoaa TP Nha Trang Khanh Hoa");
 ```
+
+Ví dụ thứ hai không có dấu phẩy và gõ sai một chữ. Kết quả khớp gần đúng có cảnh báo và `confidence` tối đa `0.7`.
 
 ## Chuyển đổi địa chỉ có cấu trúc
 
@@ -121,7 +124,7 @@ Kết quả trả về `confidence` từ `0` đến `1`, kèm `strategy`, `warni
 
 ## Nguồn dữ liệu
 
-Bộ dữ liệu trong `src/data/official/*.json` được sinh từ các file chuyển đổi chính thức theo Quyết định 19/2025/QĐ-TTg, các nghị quyết của Ủy ban Thường vụ Quốc hội, và bảng đối chiếu của Tổng cục Thống kê. Có thể sinh lại bằng `npm run build:data`. Với nghiệp vụ có yêu cầu pháp lý cao, hãy đối chiếu lại với `danhmuchanhchinh.nso.gov.vn`. Xem thêm [Data Sources](docs/explanation/data-sources.md).
+Bộ dữ liệu trong `src/data/official/*.json` được sinh từ các file chuyển đổi chính thức theo Quyết định 19/2025/QĐ-TTg, các nghị quyết của Ủy ban Thường vụ Quốc hội, bảng đối chiếu của Cục Thống kê và các thay đổi năm 2026. Có thể sinh lại bằng `npm run build:data`. Với nghiệp vụ có yêu cầu pháp lý cao, hãy đối chiếu lại với `danhmuchanhchinh.nso.gov.vn`. Xem thêm [Data Sources](docs/explanation/data-sources.md).
 
 ## Tài liệu
 
@@ -144,7 +147,7 @@ Bộ dữ liệu trong `src/data/official/*.json` được sinh từ các file c
 
 ## Giới hạn
 
-- Bộ dữ liệu đã được đối chiếu với tổng số chính thức năm 2025, nhưng các quy trình có tính pháp lý cao vẫn nên kiểm tra lại với nguồn nhà nước.
+- Bộ dữ liệu hiện hành đã được đối chiếu với tổng số chính thức đến ngày 25/09/2026, nhưng các quy trình có tính pháp lý cao vẫn nên kiểm tra lại với nguồn nhà nước.
 - Bộ parse địa chỉ dạng text hữu dụng cho nhu cầu thực tế nhưng không bao phủ mọi định dạng.
 - Địa chỉ mơ hồ hoặc confidence thấp sẽ không bị ép thành một kết quả duy nhất.
 - Lỗi OCR, địa chỉ thiếu thành phần, và các trường hợp lịch sử phức tạp có thể cần review thủ công.
