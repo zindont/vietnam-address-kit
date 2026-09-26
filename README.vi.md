@@ -66,7 +66,7 @@ import { convertAddressText } from "vietnam-address-kit";
 
 convertAddressText("123 Lê Lợi, Phường Lộc Thọ, TP Nha Trang, Khánh Hòa");
 convertAddressText("123 Le Loi P Vinh Hoaa TP Nha Trang Khanh Hoa");
-convertAddressText("58 doan tran nghiep vinh phuoc nha trang");
+convertAddressText("123 Duong Vi Du phuong vinh hoa nha trang");
 ```
 
 Ví dụ thứ hai không có dấu phẩy và gõ sai một chữ. Kết quả khớp gần đúng có cảnh báo và `confidence` tối đa `0.7`.

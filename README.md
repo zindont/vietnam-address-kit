@@ -66,7 +66,7 @@ import { convertAddressText } from "vietnam-address-kit";
 
 convertAddressText("123 Lê Lợi, Phường Lộc Thọ, TP Nha Trang, Khánh Hòa");
 convertAddressText("123 Le Loi P Vinh Hoaa TP Nha Trang Khanh Hoa");
-convertAddressText("58 doan tran nghiep vinh phuoc nha trang");
+convertAddressText("123 Duong Vi Du phuong vinh hoa nha trang");
 ```
 
 The second example has no commas and a small spelling error. Approximate matches carry a warning and confidence of at most `0.7`.
